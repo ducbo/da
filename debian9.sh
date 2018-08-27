@@ -1804,6 +1804,16 @@ printf \\a
 sleep 1
 printf \\a
 
+cd /usr/local/directadmin/custombuild
+./build update
+./build set exim yes
+./build set eximconf yes
+./build set eximconf_release 4.5
+./build set spamassassin yes
+./build update
+./build exim
+./build exim_conf
+
 	grep -q 'letsencrypt=1' /usr/local/directadmin/conf/directadmin.conf || echo "letsencrypt=1" >> /usr/local/directadmin/conf/directadmin.conf
 	grep -q 'enable_ssl_sni=1' /usr/local/directadmin/conf/directadmin.conf || echo "enable_ssl_sni=1" >> /usr/local/directadmin/conf/directadmin.conf
 	grep -q 'hide_brute_force_notifications=1' /usr/local/directadmin/conf/directadmin.conf || echo "hide_brute_force_notifications=1" >> /usr/local/directadmin/conf/directadmin.conf
