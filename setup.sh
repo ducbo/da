@@ -8,11 +8,9 @@ TRUE_FALSE="n"
 echo "##################################################"
 echo "#            + CENTOS   6 64BIT (1)              #"
 echo "#            + CENTOS   7 64BIT (2)              #"
-echo "#            + FREEBSD  9 64BIT (3)              #"
-echo "#            + FREEBSD 11 64BIT (4)              #"
-echo "#            + DEBIAN   7 64BIT (5)              #"
-echo "#            + DEBIAN   8 64BIT (6)              #"
-echo "#            + DEBIAN   9 64BIT (7)              #"
+echo "#            + DEBIAN   8 64BIT (3)              #"
+echo "#            + DEBIAN   9 64BIT (4)              #"
+echo "#            + CENTOS   6 32BIT (5)              #"
 echo "##################################################"
 echo ""
 
@@ -20,10 +18,10 @@ while [ "$TRUE_FALSE" = "n" ];
 do
 {
 	echo "Enter The OS Version Number You"
-	echo -n "Want To Install (Ex: 1, 2, 3, 4, 5, 6, 7): "
+	echo -n "Want To Install (Ex: 1, 2, 3, 4, 5): "
 	read STT_VER;
 	echo ""
-	if [ "$STT_VER" = "1" ] || [ "$STT_VER" = "2" ] || [ "$STT_VER" = "3" ] || [ "$STT_VER" = "4" ] || [ "$STT_VER" = "5" ] || [ "$STT_VER" = "6" ] || [ "$STT_VER" = "7" ]; then
+	if [ "$STT_VER" = "1" ] || [ "$STT_VER" = "2" ] || [ "$STT_VER" = "3" ] || [ "$STT_VER" = "4" ] || [ "$STT_VER" = "5" ]; then
 		echo "Ok"
 		TRUE_FALSE="y";
 		sleep 3;
@@ -42,15 +40,11 @@ if [ "$STT_VER" = "1" ]; then
 elif [ "$STT_VER" = "2" ]; then
 	VERSION_CENTOS=7	
 elif [ "$STT_VER" = "3" ]; then
-	VERSION_CENTOS=009
-elif [ "$STT_VER" = "4" ]; then
-	VERSION_CENTOS=111
-elif [ "$STT_VER" = "5" ]; then
-	VERSION_CENTOS=07
-elif [ "$STT_VER" = "6" ]; then
 	VERSION_CENTOS=08
-elif [ "$STT_VER" = "7" ]; then
+elif [ "$STT_VER" = "4" ]; then
 	VERSION_CENTOS=09
+elif [ "$STT_VER" = "5" ]; then
+	VERSION_CENTOS=632
 fi
 
 cd /root
