@@ -75,6 +75,7 @@ fi
 	service crond restart
 	rm -rf /root/setup.sh
 	clear
+	sleep 3;
 
 cd /usr/local/directadmin/scripts || exit
 SERVERIP=`cat ./setup.txt | grep ip= | cut -d= -f2`;
