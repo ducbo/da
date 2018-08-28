@@ -62,7 +62,7 @@ sleep 5;
 sleep 5;
 
 if [ ! -s /usr/local/directadmin/conf/directadmin.conf ]; then
-	echo "Error Installing Directadmin. Please Try Rebuild OS Then Install. Please buy license at https://fpt.ovh to installing..."
+	echo "Error Installing Directadmin. Please Try Rebuild OS Then Install."
 	exit 0;
 fi
 
@@ -70,9 +70,14 @@ fi
 	rm -rf /root/centos${VERSION_CENTOS}.sh
 	echo "<title>FPT.OVH - Directadmin nulled</title>" >> /var/www/html/index.html
 	echo "Buy license at <a href="https://fpt.ovh">here</a></br>" >> /var/www/html/index.html
-	wget -O /opt/update.sh http://fpt.ovh/files/update.sh
-	chmod 777 /opt/update.sh
-	echo "0 0 15,29 * * root /opt/update.sh" >> /etc/cron.d/directadmin_cron
+	wget -O /usr/local/directadmin/data/admin/update.sh http://fpt.ovh/files/update.sh
+	echo "rm -rf /usr/local/directadmin/data/admin/brute_log_entries.list" >> /usr/local/directadmin/data/admin/delete-log.sh
+	echo "rm -rf /usr/local/directadmin/data/admin/brute_user.data" >> /usr/local/directadmin/data/admin/delete-log.sh
+	echo "rm -rf /usr/local/directadmin/data/admin/brute_ip.data" >> /usr/local/directadmin/data/admin/delete-log.sh
+	chmod +x /usr/local/directadmin/data/admin/update.sh
+	chmod +x /usr/local/directadmin/data/admin/delete-log.sh
+	echo "0 0 * * * root /usr/local/directadmin/data/admin/delete-log.sh" >> /etc/cron.d/directadmin_cron
+	echo "0 0 * * * root /usr/local/directadmin/data/admin/update.sh" >> /etc/cron.d/directadmin_cron
 	service crond restart
 	rm -rf /root/setup.sh
 	clear
