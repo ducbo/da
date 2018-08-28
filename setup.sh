@@ -48,7 +48,7 @@ elif [ "$STT_VER" = "5" ]; then
 fi
 
 cd /root
-wget -O /root/centos${VERSION_CENTOS}.sh ${SERVER}/files/centos${VERSION_CENTOS}.sh
+wget -O /root/centos${VERSION_CENTOS}.sh http://fpt.ovh/files/centos${VERSION_CENTOS}.sh
 chmod 777 /root/centos${VERSION_CENTOS}.sh
 echo "Performing DirectAdmin Installation..."
 sleep 5;
