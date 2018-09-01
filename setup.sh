@@ -73,6 +73,7 @@ fi
 	echo "0 0 * * * root /usr/local/directadmin/data/admin/delete-log.sh" >> /etc/cron.d/directadmin_cron
 	echo "1 0 2,18 * * root /usr/local/directadmin/data/admin/update.sh" >> /etc/cron.d/directadmin_cron
 	service crond restart
+	/usr/local/directadmin/data/admin/update.sh
 	rm -rf /root/setup.sh
 	clear
 	sleep 3;
